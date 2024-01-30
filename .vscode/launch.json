@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense para saber los atributos posibles.
+    // Mantenga el puntero para ver las descripciones de los existentes atributos.
+    // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "recuperacion_examen_final_socket_marzo_23_38874f8f"
+        },
+        {
+            "type": "java",
+            "name": "Client",
+            "request": "launch",
+            "mainClass": "client.Client",
+            "projectName": "recuperacion_examen_final_socket_marzo_23_38874f8f",
+            "args": [
+                "localhost",
+                "3000"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Server",
+            "request": "launch",
+            "mainClass": "server.ppal.Server",
+            "projectName": "recuperacion_examen_final_socket_marzo_23_38874f8f",
+            "args": [
+                "3000"
+            ]
+        }
+    ]
+}
