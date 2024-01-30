@@ -51,9 +51,10 @@ public class GetHashService implements ServiceManagerInterface{
         /*
          * Si el fichero existe y no es un Directorio, ejecuta el comando
          * que devuelve el hash de ese fichero.
-         */
+         */ 
         if (file.exists() && !file.isDirectory()){
-            final String [] cmd = {"CertUtil", "-hashfile", absolutePathFile, "MD5"};
+          //  final String [] cmd = {"CertUtil", "-hashfile", absolutePathFile, "MD5"};
+          final String [] cmd = {"shasum", "-a", "256", absolutePathFile};
            
             String  msg = "";
             ProcessBuilder pb = new ProcessBuilder(cmd);
@@ -84,11 +85,13 @@ public class GetHashService implements ServiceManagerInterface{
                 return false;
             }
     
-            String [] hash = msg.split(":");  //separamos lo que nos devuelve el hash en array utilizando una separación de :
-            String [] hash1 = hash[2].split("CertUtil"); //Separamos en dos partes a partir de CertUtil
+         //   String [] hash = msg.split(":");  //separamos lo que nos devuelve el hash en array utilizando una separación de :
+         //   String [] hash1 = hash[2].split("CertUtil"); //Separamos en dos partes a partir de CertUtil
             
             //Se lo mandamos el cliente.  --> cliente
-            pw.println("Codigo Hash MD5 " + hash1[0]);  //Nos quedamos con la primera parte que contiene el hash y lo mandamos al flujo de salida.
+           // pw.println("Codigo Hash MD5 " + hash1[0]);  //Nos quedamos con la primera parte que contiene el hash y lo mandamos al flujo de salida.
+            String [] hash = msg.split(" ");
+            pw.println("Codigo Hash MD5 " + hash[0]);
             pw.flush();
             return true;
         }
